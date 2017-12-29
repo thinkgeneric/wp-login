@@ -1,0 +1,11 @@
+body.login {
+    background: url('../images/forest.jpg');
+    background-size: cover;
+}
+
+#login {
+    float: right;
+    width: 400px;
+    padding: 5em 3em;
+    background: rgba(255, 255, 255, 0.9);
+}
