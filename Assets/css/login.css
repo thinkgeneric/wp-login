@@ -1,11 +1,28 @@
 body.login {
-    background: url('../images/forest.jpg');
-    background-size: cover;
+    /*background: url('../images/forest.jpg');*/
+    /*background-size: cover;*/
+    background-color: #f3f3f3;
 }
 
 #login {
+    display: block;
+    position: relative;
     float: right;
-    width: 400px;
+    height: 100%;
+    width: 450px;
     padding: 5em 3em;
-    background: rgba(255, 255, 255, 0.9);
+    background: #fff;
+}
+
+.background-image {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.background-image > img {
+    height: 100%;
+    opacity: 0.6;
+    vertical-align: middle;
 }
