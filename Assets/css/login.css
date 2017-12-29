@@ -1,6 +1,8 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
 body.login {
-    /*background: url('../images/forest.jpg');*/
-    /*background-size: cover;*/
     background-color: #f3f3f3;
 }
 
@@ -14,9 +16,13 @@ body.login {
     background: #fff;
 }
 
+.login form {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
 .background-image {
     position: absolute;
-    width: 100%;
     overflow: hidden;
     height: 100%;
 }
@@ -25,4 +31,20 @@ body.login {
     height: 100%;
     opacity: 0.6;
     vertical-align: middle;
+}
+
+.bg-caption {
+    width: 500px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 3em;
+    padding-left: 3em;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-shadow {
+    text-shadow: 0 0 30px rgba(58,58,58,.5);
 }
