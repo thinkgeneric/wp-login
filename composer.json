@@ -1,0 +1,16 @@
+{
+  "name": "gearhead/login",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Eric Eliseo",
+      "email": "eric@thinkgeneric.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Gearhead\\Login\\": "src"
+    }
+  }
+}
