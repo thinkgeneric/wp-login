@@ -7,8 +7,6 @@ namespace Gearhead\Login;
  * @package Gearhead\Login
  *
  * todo
- * - add way to dictate left or right form
- * - add way to center form
  * - add way to have variable background
  * - clean up
  * - mobile styles
@@ -65,10 +63,10 @@ class LoginPage {
 			return '';
 		}
 
-		$message      = 'Customize your login page as you see fit.';
-		$afterthought = 'The best WordPress experience by passionate developers.';
+		$caption_title      = $this->get_caption_title();
+		$caption = $this->get_caption();
 
-		return sprintf("<div class='bg-caption text-white text-shadow'><h2 class='semi-bold text-white'>%s</h2><p class='small'>%s</p></div>", $message, $afterthought);
+		return sprintf("<div class='bg-caption text-white text-shadow'><h2 class='semi-bold text-white'>%s</h2><p class='small'>%s</p></div>", $caption_title, $caption);
 	}
 
 	public function get_caption_title() {
@@ -93,7 +91,7 @@ class LoginPage {
 
 	public function caption_title($title) {
 		$this->caption_title = $title; // todo esc_html or whatever
-		if ( ! $this->enable_caption) {
+		if (!$this->enable_caption) {
 			$this->enable_caption = true;
 		}
 
@@ -102,7 +100,7 @@ class LoginPage {
 
 	public function caption($caption) {
 		$this->caption = $caption; // todo esc_html or whatever
-		if ( ! $this->enable_caption) {
+		if (!$this->enable_caption) {
 			$this->enable_caption = true;
 		}
 
