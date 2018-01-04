@@ -9,11 +9,14 @@ body.login {
 #login {
     display: block;
     position: relative;
-    float: right;
     height: 100%;
     width: 450px;
     padding: 5em 3em;
     background: #fff;
+}
+
+#login.align-right {
+    float: right;
 }
 
 .login form {
