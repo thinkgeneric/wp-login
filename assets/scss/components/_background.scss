@@ -1,0 +1,12 @@
+.background-image {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.background-image > img {
+  width: 100%;
+  opacity: 0.6;
+  vertical-align: middle;
+}

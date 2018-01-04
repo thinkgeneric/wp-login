@@ -1,0 +1,13 @@
+#login {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 450px;
+  padding: 5em 3em;
+  background: $white;
+}
+
+.login form {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}

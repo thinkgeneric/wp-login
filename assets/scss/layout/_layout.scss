@@ -1,0 +1,32 @@
+// Right aligned form
+.login.align-right {
+  #login {
+    float: right;
+  }
+
+  .background-image > img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+// Left aligned form
+.login.align-left {
+  #login {
+    margin: 0;
+  }
+
+  .background-image {
+    right: 0;
+  }
+
+  .bg-caption {
+    right: 0;
+  }
+}
+
+.login.align-center {
+  #login {
+    background-color: transparent;
+  }
+}

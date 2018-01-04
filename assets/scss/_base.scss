@@ -1,0 +1,15 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body.login {
+  background-color: $gray-lightest;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-shadow {
+  text-shadow: 0 0 30px rgba(58,58,58,.5);
+}

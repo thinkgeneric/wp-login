@@ -35,7 +35,7 @@ class LoginPage {
 	}
 
 	public function enqueue_styles() {
-		$file = $this->path . '/Assets/css/login.css';
+		$file = $this->path . '/dist/css/app.min.css';
 		wp_enqueue_style('gearhead-login', $file);
 	}
 
@@ -116,6 +116,6 @@ class LoginPage {
 			$background_image = 'forest.jpg';
 		}
 
-		return $this->path . '/Assets/images/' . $background_image;
+		return $this->path . '/dist/images/' . $background_image;
 	}
 }

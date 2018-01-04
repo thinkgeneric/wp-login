@@ -1,0 +1,59 @@
+*, ::after, ::before {
+  box-sizing: border-box; }
+
+body.login {
+  background-color: #f3f3f3; }
+
+.text-white {
+  color: #fff; }
+
+.text-shadow {
+  text-shadow: 0 0 30px rgba(58, 58, 58, 0.5); }
+
+.background-image {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  width: 100%; }
+
+.background-image > img {
+  width: 100%;
+  opacity: 0.6;
+  vertical-align: middle; }
+
+.bg-caption {
+  width: 500px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3em;
+  padding-left: 3em; }
+
+#login {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 450px;
+  padding: 5em 3em;
+  background: #fff; }
+
+.login form {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+
+.login.align-right #login {
+  float: right; }
+.login.align-right .background-image > img {
+  height: 100%;
+  width: auto; }
+
+.login.align-left #login {
+  margin: 0; }
+.login.align-left .background-image {
+  right: 0; }
+.login.align-left .bg-caption {
+  right: 0; }
+
+.login.align-center #login {
+  background-color: transparent; }
+
+/*# sourceMappingURL=app.css.map */
