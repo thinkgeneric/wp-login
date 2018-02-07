@@ -7,7 +7,7 @@ namespace Gearhead\Login;
  * @package Gearhead\Login
  *
  * todo
- * - add way to have variable background
+ * - way to change the logo
  * - clean up
  * - mobile styles
  * - inherit styles from theme
@@ -15,105 +15,208 @@ namespace Gearhead\Login;
  */
 class LoginPage {
 
-	protected $background_image;
-	protected $path;
-	protected $enable_caption = false;
-	protected $caption;
-	protected $caption_title;
-	protected $alignment_class;
+	/**
+	 * @var string The background image url
+	 */
+	protected $backgroundImage;
 
+	/**
+	 * @var string The default background image
+	 */
+	protected $defaultBackground = 'forest.jpg';
+
+	/**
+	 * @var string The path of the gearhead/login package
+	 */
+	protected $path;
+
+	/**
+	 * @var bool Determines whether captions should be visible or not
+	 */
+	protected $enableCaption = false;
+
+	/**
+	 * @var string The caption text to be displayed on the login page
+	 */
+	protected $caption;
+
+	/**
+	 * @var string The title or headline that is displayed with the caption
+	 */
+	protected $captionTitle;
+
+	/**
+	 * @var string The CSS Selector class that is used to style the login forms alignment
+	 */
+	protected $alignmentClass;
+
+	/**
+	 * LoginPage constructor.
+	 */
 	public function __construct() {
 		$this->path = dirname(dirname(__FILE__));
 	}
 
-	public function register_hooks() {
-		add_action('login_enqueue_scripts', [$this, 'enqueue_styles']);
-		add_action('login_header', [$this, 'add_background_image']);
-		add_filter('login_body_class', [$this, 'get_body_class']);
+	/**
+	 * Registers the callbacks with the necessary WordPress hooks and filters
+	 */
+	public function registerHooks() {
+		add_action('login_enqueue_scripts', [$this, 'enqueueStyles']);
+		add_action('login_header', [$this, 'renderBackgroundImage']);
+		add_filter('login_body_class', [$this, 'getBodyClass']);
 	}
 
-	public function enqueue_styles() {
+	/**
+	 * Callback function for the login page's enqueue_scripts hook
+	 */
+	public function enqueueStyles() {
 		$file = $this->path . '/dist/css/app.min.css';
 		wp_enqueue_style('gearhead-login', $file);
 	}
 
-	public function get_body_class($classes) {
-		$classes[] = $this->alignment_class;
+	/**
+	 * Callback function that returns CSS classes to be added to the login page's
+	 * <body> element.
+	 *
+	 * @param $classes
+	 *
+	 * @return array
+	 */
+	public function getBodyClass($classes) {
+		$classes[] = $this->alignmentClass;
+
 		return $classes;
 	}
 
+	/**
+	 * Allows for the alignment of the login form to be changed based
+	 * on the option passed
+	 *
+	 * @param string $alignment The alignment of the form: right, center or left
+	 *
+	 * @return $this
+	 */
 	public function align($alignment) {
-		if (!in_array($alignment, ['right', 'center', 'left'])) {
+		if ( ! in_array($alignment, ['right', 'center', 'left'])) {
 			return $this;
 		}
-		$this->alignment_class = "align-{$alignment}";
+		$this->alignmentClass = "align-{$alignment}";
+
 		// append the class to the #login
 		return $this;
 	}
 
-	public function add_background_image() {
-		$classes          = '';
-		$background_image = $this->background_image();
-		$caption          = $this->login_caption();
-		echo sprintf("<div class='background-image'><img src='%s' class='%s'>%s</div>", $background_image, $classes, $caption);
+	/**
+	 * Returns the markup for the background image that is included
+	 * on the Login Page
+	 */
+	public function renderBackgroundImage() {
+		$classes         = '';
+		$backgroundImage = $this->backgroundImageURL();
+		$caption         = $this->loginCaption();
+		echo sprintf("<div class='background-image'><img src='%s' class='%s'>%s</div>", $backgroundImage, $classes, $caption);
 	}
 
-	public function login_caption() {
-		if ( ! $this->enable_caption) {
+	/**
+	 * Callback function that returns the HTML markup for the Login Page caption
+	 * @return string
+	 */
+	public function loginCaption() {
+		if ( ! $this->enableCaption) {
 			return '';
 		}
 
-		$caption_title      = $this->get_caption_title();
-		$caption = $this->get_caption();
+		$captionTitle = $this->getCaptionTitle();
+		$caption      = $this->getCaption();
 
-		return sprintf("<div class='bg-caption text-white text-shadow'><h2 class='semi-bold text-white'>%s</h2><p class='small'>%s</p></div>", $caption_title, $caption);
+		return sprintf("<div class='bg-caption text-white text-shadow'><h2 class='semi-bold text-white'>%s</h2><p class='small'>%s</p></div>", $captionTitle, $caption);
 	}
 
-	public function get_caption_title() {
-		$caption_title = $this->caption_title;
+	/**
+	 * Returns the caption title
+	 * @return string
+	 */
+	public function getCaptionTitle() {
+		$captionTitle = $this->captionTitle;
 
-		if ($caption_title == '') {
-			$caption_title = 'Customize your login page as you see fit.';
+		if ( ! $captionTitle) {
+			$captionTitle = 'Customize your login page as you see fit.';
 		}
 
-		return $caption_title;
+		return $captionTitle;
 	}
 
-	public function get_caption() {
+	/**
+	 * Callback function that returns the caption for the login page
+	 * @return string
+	 */
+	public function getCaption() {
 		$caption = $this->caption;
 
-		if ($caption == '') {
+		if ( ! $caption) {
 			$caption = 'The best WordPress experience by passionate developers.';
 		}
 
 		return $caption;
 	}
 
-	public function caption_title($title) {
-		$this->caption_title = $title; // todo esc_html or whatever
-		if (!$this->enable_caption) {
-			$this->enable_caption = true;
+	/**
+	 * Set the caption headline
+	 *
+	 * @param string $title The title of the caption
+	 *
+	 * @return $this
+	 */
+	public function captionTitle($title) {
+		$this->captionTitle = $title;
+		if ( ! $this->enableCaption) {
+			$this->enableCaption = true;
 		}
 
 		return $this;
 	}
 
+	/**
+	 * Set the caption for the Login Page
+	 *
+	 * @param string $caption
+	 *
+	 * @return $this
+	 */
 	public function caption($caption) {
-		$this->caption = $caption; // todo esc_html or whatever
-		if (!$this->enable_caption) {
-			$this->enable_caption = true;
+		$this->caption = $caption;
+		if ( ! $this->enableCaption) {
+			$this->enableCaption = true;
 		}
 
 		return $this;
 	}
 
-	public function background_image() {
-		$background_image = $this->background_image;
-
-		if ( ! $this->background_image) {
-			$background_image = 'forest.jpg';
+	/**
+	 * Set the background image
+	 *
+	 * @param null|string|int $id The ID of the WordPress media attachment to be used for the background image.
+	 *
+	 * @return $this
+	 */
+	public function backgroundImage($id = null) {
+		if ( ! is_numeric($id) && ! $id) {
+			return $this;
 		}
 
-		return $this->path . '/dist/images/' . $background_image;
+		$this->background_image = wp_get_attachment_url($id); // todo can we abstract this?
+		return $this;
+	}
+
+	/**
+	 * Returns the URL for the Login page background image.
+	 * @return string
+	 */
+	public function backgroundImageURL() {
+		if ( ! $this->backgroundImage) {
+			return $this->path . '/dist/images/' . $this->defaultBackground;
+		}
+
+		return $this->backgroundImage;
 	}
 }
