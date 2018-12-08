@@ -54,7 +54,7 @@ class LoginPage {
      * LoginPage constructor.
      */
     public function __construct() {
-        $this->path = dirname(dirname(__FILE__));
+        $this->path = get_stylesheet_dir() . '/vendor/gearhead/wp-login/src';
     }
 
 	/**
