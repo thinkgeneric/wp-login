@@ -54,7 +54,7 @@ class LoginPage {
      * LoginPage constructor.
      */
     public function __construct() {
-        $this->path = get_stylesheet_dir() . '/vendor/gearhead/wp-login/src';
+        $this->path = get_stylesheet_directory_uri() . '/vendor/gearhead/wp-login';
     }
 
 	/**
@@ -70,7 +70,7 @@ class LoginPage {
 	 * Callback function for the login page's enqueue_scripts hook
 	 */
 	public function enqueueStyles() {
-		$file = $this->path . '/dist/styles/app.css';
+		$file = $this->path . '/dist/styles/app.min.css';
 		wp_enqueue_style('gearhead-login', $file);
 	}
 
