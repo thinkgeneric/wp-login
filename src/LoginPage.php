@@ -70,7 +70,7 @@ class LoginPage {
 	 * Callback function for the login page's enqueue_scripts hook
 	 */
 	public function enqueueStyles() {
-		$file = $this->path . '/dist/css/app.min.css';
+		$file = $this->path . '/dist/styles/app.css';
 		wp_enqueue_style('gearhead-login', $file);
 	}
 
