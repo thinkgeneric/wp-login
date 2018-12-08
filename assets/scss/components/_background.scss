@@ -1,7 +1,10 @@
 .background-image {
-  position: absolute;
-  overflow: hidden;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
+  overflow: hidden;
+  position: absolute;
   width: 100%;
 }
 

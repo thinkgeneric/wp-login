@@ -54,7 +54,7 @@ class LoginPage {
      * LoginPage constructor.
      */
     public function __construct() {
-        $this->path = get_stylesheet_directory_uri();
+        $this->path = dirname(dirname(__FILE__));
     }
 
 	/**
