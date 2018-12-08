@@ -1,7 +1,13 @@
+*, ::after, ::before {
+  box-sizing: border-box; //todo do we need this?
+}
+
 // Right aligned form
 .login.align-right {
   #login {
-    float: right;
+    @media (min-width: $screen-sm-max) {
+      float: right;
+    }
   }
 
   .background-image > img {
@@ -13,7 +19,9 @@
 // Left aligned form
 .login.align-left {
   #login {
-    margin: 0;
+    @media (min-width: $screen-sm-max) {
+      margin: 0;
+    }
   }
 
   .background-image {
@@ -29,4 +37,40 @@
   #login {
     background-color: transparent;
   }
+}
+
+body.login {
+  background-color: $color-gray-lightest;
+}
+
+.text-white {
+  color: $color-white;
+}
+
+.text-shadow {
+  text-shadow: 0 0 30px rgba(58,58,58,.5);
+}
+
+h1, h2, h3, h4, h5 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+/** This is specific to overwrite styles **/
+form#loginform p.galogin {
+  height: 34px;
+}
+
+.bg-caption {
+  bottom: 0;
+  margin-bottom: $padding-xl-vertical;
+  padding-left: $padding-large-horizontal;
+  position: absolute;
 }
