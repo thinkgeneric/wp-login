@@ -1,13 +1,46 @@
 #login {
+  background: $color-white;
   display: block;
-  position: relative;
   height: 100%;
-  width: 450px;
-  padding: 5em 3em;
-  background: $white;
+  margin: auto;
+  max-width: 450px;
+  padding: $padding-xl-horizontal ($padding-xl-horizontal * .66);
+  position: relative;
+  width: 100%;
+
+  @media (min-width: $screen-sm-max) {
+    width: 450px;
+  }
+}
+
+.login h1 a {
+  display: block;
+  overflow: hidden;
+  padding-bottom: $padding-xl-vertical;
+  text-indent: -9999px;
+  width: 100%;
 }
 
 .login form {
   box-shadow: none;
   -webkit-box-shadow: none;
+}
+
+.login-form-background {
+  display: none;
+  width: calc(100% - 450px);
+  &:before {
+    background-color: $color-white;
+    content: "";
+    height: 100%;
+    left:0;
+    opacity: 0.3;
+    position: absolute;
+    top:0;
+    width: 100%;
+  }
+
+  @media (min-width: $screen-sm-max) {
+    display: block;
+  }
 }

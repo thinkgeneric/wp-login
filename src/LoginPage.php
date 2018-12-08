@@ -50,12 +50,12 @@ class LoginPage {
 	 */
 	protected $alignmentClass;
 
-	/**
-	 * LoginPage constructor.
-	 */
-	public function __construct() {
-		$this->path = dirname(dirname(__FILE__));
-	}
+    /**
+     * LoginPage constructor.
+     */
+    public function __construct() {
+        $this->path = get_stylesheet_directory_uri();
+    }
 
 	/**
 	 * Registers the callbacks with the necessary WordPress hooks and filters
@@ -106,16 +106,17 @@ class LoginPage {
 		return $this;
 	}
 
-	/**
-	 * Returns the markup for the background image that is included
-	 * on the Login Page
-	 */
-	public function renderBackgroundImage() {
-		$classes         = '';
-		$backgroundImage = $this->backgroundImageURL();
-		$caption         = $this->loginCaption();
-		echo sprintf("<div class='background-image'><img src='%s' class='%s'>%s</div>", $backgroundImage, $classes, $caption);
-	}
+    /**
+     * Returns the markup for the background image that is included
+     * on the Login Page
+     */
+    public function renderBackgroundImage() {
+        $classes         = '';
+        $backgroundImage = $this->backgroundImageURL();
+        $caption         = $this->loginCaption();
+        $style_attribute = "style='background-image:url({$backgroundImage})'";
+        echo sprintf("<div class='background-image login-form-background %s ' %s>%s</div>", $classes, $style_attribute, $caption);
+    }
 
 	/**
 	 * Callback function that returns the HTML markup for the Login Page caption
