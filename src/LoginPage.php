@@ -205,7 +205,7 @@ class LoginPage {
 			return $this;
 		}
 
-		$this->background_image = wp_get_attachment_url($id); // todo can we abstract this?
+		$this->backgroundImage = wp_get_attachment_url($id); // todo can we abstract this?
 		return $this;
 	}
 
