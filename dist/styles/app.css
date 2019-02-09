@@ -1,0 +1,159 @@
+/* line 1, assets/scss/_base.scss */
+*, ::after, ::before {
+  box-sizing: border-box; }
+
+/* line 5, assets/scss/_base.scss */
+body.login {
+  background-color: #f3f3f3; }
+
+/* line 9, assets/scss/_base.scss */
+.text-white {
+  color: #fff; }
+
+/* line 13, assets/scss/_base.scss */
+.text-shadow {
+  text-shadow: 0 0 30px rgba(58, 58, 58, 0.5); }
+
+/* line 1, assets/scss/components/_background.scss */
+.background-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%; }
+
+/* line 11, assets/scss/components/_background.scss */
+.background-image > img {
+  width: 100%;
+  opacity: 0.6;
+  vertical-align: middle; }
+
+/* line 1, assets/scss/components/_caption.scss */
+.bg-caption {
+  width: 500px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3em;
+  padding-left: 3em; }
+
+/* line 1, assets/scss/components/_login-form.scss */
+#login {
+  background: #fff;
+  display: block;
+  height: 100%;
+  margin: auto;
+  max-width: 450px;
+  padding: 64px 42.24px;
+  position: relative;
+  width: 100%; }
+  @media (min-width: 991px) {
+    /* line 1, assets/scss/components/_login-form.scss */
+    #login {
+      width: 450px; } }
+
+/* line 16, assets/scss/components/_login-form.scss */
+.login h1 a {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 32px;
+  text-indent: -9999px;
+  width: 100%; }
+
+/* line 24, assets/scss/components/_login-form.scss */
+.login form {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
+
+/* line 29, assets/scss/components/_login-form.scss */
+.login-form-background {
+  display: none;
+  width: calc(100% - 450px);
+  background-size: cover; }
+  /* line 33, assets/scss/components/_login-form.scss */
+  .login-form-background:before {
+    background-color: #fff;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+  @media (min-width: 991px) {
+    /* line 29, assets/scss/components/_login-form.scss */
+    .login-form-background {
+      display: block; } }
+
+/* line 1, assets/scss/layout/_layout.scss */
+*, ::after, ::before {
+  box-sizing: border-box; }
+
+@media (min-width: 991px) {
+  /* line 7, assets/scss/layout/_layout.scss */
+  .login.align-right #login {
+    float: right; } }
+
+/* line 13, assets/scss/layout/_layout.scss */
+.login.align-right .background-image > img {
+  height: 100%;
+  width: auto; }
+
+@media (min-width: 991px) {
+  /* line 21, assets/scss/layout/_layout.scss */
+  .login.align-left #login {
+    margin: 0; } }
+
+/* line 27, assets/scss/layout/_layout.scss */
+.login.align-left .background-image {
+  right: 0; }
+
+/* line 31, assets/scss/layout/_layout.scss */
+.login.align-left .bg-caption {
+  right: 0; }
+
+/* line 37, assets/scss/layout/_layout.scss */
+.login.align-center #login {
+  background-color: transparent; }
+
+/* line 42, assets/scss/layout/_layout.scss */
+body.login {
+  background-color: #f3f3f3; }
+
+/* line 46, assets/scss/layout/_layout.scss */
+.text-white {
+  color: #fff; }
+
+/* line 50, assets/scss/layout/_layout.scss */
+.text-shadow {
+  text-shadow: 0 0 30px rgba(58, 58, 58, 0.5); }
+
+/* line 54, assets/scss/layout/_layout.scss */
+h1, h2, h3, h4, h5 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 0.5rem; }
+
+/* line 62, assets/scss/layout/_layout.scss */
+h2 {
+  font-size: 36px;
+  line-height: 1.6; }
+
+/* line 67, assets/scss/layout/_layout.scss */
+p {
+  font-size: 14px; }
+
+/** This is specific to overwrite styles **/
+/* line 72, assets/scss/layout/_layout.scss */
+form#loginform p.galogin {
+  height: 34px; }
+
+/* line 76, assets/scss/layout/_layout.scss */
+.bg-caption {
+  bottom: 0;
+  margin-bottom: 32px;
+  padding-left: 32px;
+  position: absolute; }
