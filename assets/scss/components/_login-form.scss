@@ -29,6 +29,7 @@
 .login-form-background {
   display: none;
   width: calc(100% - 450px);
+  background-size: cover;
   &:before {
     background-color: $color-white;
     content: "";
